@@ -4,7 +4,6 @@ import datetime
 import wikipedia
 import webbrowser
 import os
-# Importing specific tools for better error handling/client use
 from google import genai
 from google.genai.errors import APIError
 import time
@@ -14,21 +13,19 @@ import time
 # Initialize Text-to-Speech Engine (Level 1: The Mouth)
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-# Set the desired voice
 engine.setProperty('voice', voices[0].id)
 
 # Initialize Gemini Client (Level 3: The "Generative AI" Brain)
 genai_client = None
 model_name = 'gemini-2.5-flash'
 try:
-    # Client automatically picks up the GEMINI_API_KEY from environment variables
-    # *** BEST PRACTICE: Ensure your GEMINI_API_KEY is set as an environment variable! ***
+    # Client automatically picks up the GEMINI_API_KEY from environment variables.
+    # *** GEMINI_API_KEY is set as an environment variable! ***
     genai_client = genai.Client()
 except Exception as e:
     # This block handles the case where the API key is not found in the environment
     print(f"Error initializing Gemini client. Make sure GEMINI_API_KEY is set: {e}")
-    # You can add a fallback speak message here if needed:
-    # speak("Warning: My generative AI capabilities are offline. Please set the API key.")
+
 
 # --- Level 1: The Mouth & Ears (Basic Input/Output) ---
 
@@ -102,7 +99,6 @@ def generative_ai_think(prompt):
             config={"system_instruction": system_prompt}
         )
 
-        # Read the generated text response and DO NOT return the text to be spoken again later
         speak(response.text)
 
     except APIError as e:
@@ -183,12 +179,8 @@ def main_jarvis_loop():
             speak("Goodbye, Sir. Have a great day!")
             break
 
-        # --- Level 3: The "Generative AI" Brain (The "Think" Command) ---
-        # If no core command is matched, treat it as a prompt for the LLM
         else:
-            # The function now speaks the response internally
             generative_ai_think(query)
-            # Removed the redundant 'speak(response)' call
 
 
 if __name__ == "__main__":
