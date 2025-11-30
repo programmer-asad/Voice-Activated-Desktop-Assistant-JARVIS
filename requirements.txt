@@ -4,6 +4,7 @@ pyaudio
 wikipedia
 webbrowser 
 google-genai
+google-generativeai
 
 
 #pip install pyttsx3 SpeechRecognition wikipedia webbrowser google-genai

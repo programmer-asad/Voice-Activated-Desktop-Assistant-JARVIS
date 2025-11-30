@@ -10,42 +10,8 @@
 - tell_time(): replies with the current time
 - wikipedia_search(topic): reads first two sentences from Wikipedia
 - open_website(key): opens YouTube, Google, or a LinkedIn profile (set LINKEDIN_URL)
-- query_llm(prompt): integration example for OpenAI (uses OPENAI_API_KEY env var)
-- note_taking: "note [text]" saves a note to notes.txt
-- system_status: custom feature — shows CPU and memory usage (requires psutil)
-
-
-Usage:
-1) Install dependencies: pip install -r requirements.txt
-requirements.txt (example):
-pyttsx3
-SpeechRecognition
-wikipedia
-PyAudio # or pipwin install pyaudio on Windows
-openai
-psutil
-
-pip install pyttsx3 SpeechRecognition wikipedia webbrowser google-genai
-
-2) Set environment variable OPENAI_API_KEY if you want LLM integration.
-Example (Linux/macOS): export OPENAI_API_KEY="sk-xxx"
-Windows (PowerShell): $env:OPENAI_API_KEY="sk-xxx"
-
-
-3) Update LINKEDIN_URL below with your LinkedIn profile URL.
-
-
-
-## Notes:
-
-- Microphone and internet access required for speech recognition and Wikipedia/LLM queries.
-- If pyaudio install is problematic on Windows, 
-- use pipwin: 
-
-            ```bash
-            pip install pipwin; 
-            pipwin install pyaudio
-            ```
+- query_llm(prompt): integration example for Write a poem about Python, google-genai
+- Bonus,Wait/Sleep,"""Jarvis, wait for 10 seconds""",time
 
 
 ## 💻 Requirements 
@@ -57,10 +23,11 @@ Windows (PowerShell): $env:OPENAI_API_KEY="sk-xxx"
 
 ### To select interpreter:
 
-    - ctrl + shift + p
-    - base interpreter
+- ctrl + shift + p
+- base interpreter
 
-1. Create a virtual environment:
+
+1. To activate base environment:
 
    ```bash
    conda activate base
@@ -116,3 +83,6 @@ Inspired by Tony Stark's JARVIS
 ## 📜 License
 
 This project is open-source and free to use for learning purposes.
+
+
+
